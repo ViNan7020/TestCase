@@ -11,6 +11,8 @@
 
 namespace fs = std::filesystem;
 
+
+
 namespace
 {
     const fs::path kDefaultDataFile = pathFromUtf8("objects.txt");
@@ -117,6 +119,7 @@ namespace
 
     std::vector<Object> loadObjects(const fs::path& path)
     {
+        system("cls");
         ensureDataFileExists(path);
 
         std::ifstream file(path, std::ios::binary);
@@ -157,6 +160,7 @@ namespace
 
     void saveObjects(const fs::path& path, const std::vector<Object>& objects)
     {
+        system("cls");
         ensureParentDirectory(path);
 
         std::ofstream file = openUtf8OutputFile(path);
@@ -244,6 +248,7 @@ namespace
 
     void printObjects(const std::vector<Object>& objects)
     {
+        system("cls");
         if (objects.empty())
         {
             consoleWriteLine("Список пуст.");
@@ -258,6 +263,7 @@ namespace
 
     SortMode readSortMode()
     {
+        system("cls");
         consoleWriteLine("1. По имени");
         consoleWriteLine("2. По расстоянию");
         consoleWriteLine("3. По времени создания");
@@ -281,6 +287,7 @@ namespace
 
     GroupMode readGroupMode()
     {
+        system("cls");
         consoleWriteLine("1. По расстоянию");
         consoleWriteLine("2. По имени");
         consoleWriteLine("3. По времени создания");
@@ -304,6 +311,7 @@ namespace
 
     Object readObjectFromUser()
     {
+        system("cls");
         Object object;
         object.name = readLine("Имя: ");
         object.x = readDouble("X: ");
